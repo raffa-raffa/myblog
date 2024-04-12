@@ -38,7 +38,8 @@ import {
         await updateProfile(user, {
           displayName: data.displayName,
         });
-  
+        setLoading(false);
+
         return user;
       } catch (error) {
         console.log(error.message);
@@ -54,10 +55,10 @@ import {
           systemErrorMessage = "Ocorreu um erro, por favor tenta mais tarde.";
         }
   
+        setLoading(false);
         setError(systemErrorMessage);
       }
   
-      setLoading(false);
     };
   
     const logout = () => {
@@ -96,7 +97,6 @@ import {
   
       console.log(error);
   
-      setLoading(false);
     };
   
     useEffect(() => {
