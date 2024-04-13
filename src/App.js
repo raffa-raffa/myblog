@@ -6,9 +6,13 @@ import Register from './pages/Register/Register';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
+
+import { AuthProvider } from './context/AuthContext';}
+
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
       <BrowserRouter>
       <Navbar/>
       <div className="container">
@@ -20,6 +24,7 @@ function App() {
       </div>
       <Footer/>
       </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
