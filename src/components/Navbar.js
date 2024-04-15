@@ -31,7 +31,7 @@ const Navbar = () => {
                 to="/login"
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
-                Entrar
+                Login
               </NavLink>
             </li>
             <li>

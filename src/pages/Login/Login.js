@@ -1,7 +1,6 @@
-import styles from "./Login.module.css";
-
 import { useEffect, useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
+import styles from "./Login.module.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -33,40 +32,39 @@ const Login = () => {
   }, [authError]);
 
   return (
-    <div className={styles.login}>
-      <h1>Entrar</h1>
-      <p>Faça o login para poder utilizar o sistema</p>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <span>E-mail:</span>
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="E-mail do usuário"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-        </label>
-        <label>
-          <span>Senha:</span>
-          <input
-            type="password"
-            name="password"
-            required
-            placeholder="Insira a senha"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          />
-        </label>
-        {!loading && <button className="btn">Entrar</button>}
-        {loading && (
-          <button className="btn" disabled>
-            Aguarde...
-          </button>
-        )}
-        {error && <p className="error">{error}</p>}
-      </form>
+    <div className="login">
+      <div className={styles.box}> {/* Usando styles.box para aplicar a classe */}
+        <p>Login</p>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="E-mail"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
+          </label>
+          <label>
+            <input
+              type="password"
+              name="password"
+              required
+              placeholder="Senha"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            />
+          </label>
+          {!loading && <button className="btn">Login</button>}
+          {loading && (
+            <button className="btn" disabled>
+              Aguarde...
+            </button>
+          )}
+          {error && <p className="error">{error}</p>}
+        </form>
+      </div>
     </div>
   );
 };

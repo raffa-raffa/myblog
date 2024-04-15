@@ -3,5 +3,16 @@
   }
   
   .login p {
-    color: #aaa;
+    color: #494949;
   }
+
+
+  .box {
+    margin: 120px auto;
+    width: 25%;
+    padding: 10px;
+    border-radius: 20px;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px -2px 10px 0px;
+  }
+  
