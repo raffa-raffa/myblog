@@ -81,7 +81,7 @@ import {
         } else if (error.message.includes("wrong-password")) {
           systemErrorMessage = "Senha incorreta.";
         } else {
-          systemErrorMessage = "Ocorreu um erro, por favor tenta mais tarde.";
+          systemErrorMessage = "Ocorreu um erro! Revise suas credencias e tente novamente.";
         }
   
         console.log(systemErrorMessage);

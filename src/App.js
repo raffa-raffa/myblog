@@ -42,12 +42,30 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route
-                path="/login"
-                element={!user ? <Login /> : <Navigate to="/" />}
-              />              <Route
-                path="/register"
-                element={!user ? <Register /> : <Navigate to="/" />}
-              />
+  path="/login"
+  element={
+    !user ? (
+      <div className="login-page">
+        <Login />
+      </div>
+    ) : (
+      <Navigate to="/" />
+    )
+  }
+/>
+<Route
+  path="/register"
+  element={
+    !user ? (
+      <div className="register-page">
+        <Register />
+      </div>
+    ) : (
+      <Navigate to="/" />
+    )
+  }
+/>
+
             </Routes>
           </div>
           <Footer />
