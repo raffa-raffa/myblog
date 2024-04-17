@@ -9,6 +9,7 @@ import { useAuthentication } from "./hooks/useAuthentication";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Login from "./pages/Login/Login";
+import CreatePost from "./pages/CreatePost/CreatePost";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -64,7 +65,10 @@ function App() {
       <Navigate to="/" />
     )
   }
-/>
+/>  <Route
+                path="/posts/create"
+                element={user ? <CreatePost /> : <Navigate to="/login" />}
+              />
 
             </Routes>
           </div>
