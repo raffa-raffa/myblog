@@ -3,7 +3,7 @@ import styles from "./CreatePost.module.css";
 import { useState } from "react";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 import { useNavigate } from "react-router-dom";
-import { useAuthValue } from "../../context/AuthContext";
+import { useAuthValue } from "../../contexts/AuthContext";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -22,16 +22,41 @@ const CreatePost = () => {
     e.preventDefault();
     setFormError("");
 
+    try {
+      new URL(image);
+    } catch (error) {
+      setFormError("A imagem precisa ser uma URL.");
+    }
+
+    const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
+
+    if (!title || !image || !tags || !body) {
+      setFormError("Por favor, preencha todos os campos!");
+    }
+
+    console.log(tagsArray);
+
+    console.log({
+      title,
+      image,
+      body,
+      tags: tagsArray,
+      uid: user.uid,
+      createdBy: user.displayName,
+    });
+
+    if(formError) return
 
     insertDocument({
       title,
       image,
       body,
-      tags,
+      tags: tagsArray,
       uid: user.uid,
       createdBy: user.displayName,
     });
 
+    // redirect to home page
     navigate("/");
   };
 
