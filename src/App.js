@@ -8,6 +8,7 @@ import { useAuthentication } from "./hooks/useAuthentication";
 
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
+import Search from "./pages/Search/Search";
 import Login from "./pages/Login/Login";
 import CreatePost from "./pages/CreatePost/CreatePost";
 
@@ -42,6 +43,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/search" element={<Search />} />
               <Route
   path="/login"
   element={

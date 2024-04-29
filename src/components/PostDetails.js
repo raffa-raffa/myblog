@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import styles from "./PostDetail.module.css";
+import styles from "./PostDetails.module.css";
 
 const PostDetail = ({ post }) => {
   return (
@@ -9,12 +9,12 @@ const PostDetail = ({ post }) => {
       <h2>{post.title}</h2>
       <p className={styles.createdby}>por: {post.createdBy}</p>
       <div className={styles.tags}>
-        {post.tags.map((tag) => (
+        {/* {post.tags.map((tag) => (
           <p key={tag}>
             <span>#</span>
             {tag}
           </p>
-        ))}
+        ))} */}
       </div>
       <Link to={`/posts/${post.id}`} className="btn btn-outline">
         Ler
