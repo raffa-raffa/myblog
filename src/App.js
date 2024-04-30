@@ -15,6 +15,7 @@ import CreatePost from "./pages/CreatePost/CreatePost";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Register from "./pages/Register/Register";
+import Post from "./pages/Post/Post";
 
 import { AuthProvider } from "./context/AuthContext";
 
@@ -44,6 +45,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/search" element={<Search />} />
+              <Route path="/posts/:id" element={<Post />} />
               <Route
   path="/login"
   element={
