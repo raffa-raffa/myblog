@@ -12,7 +12,6 @@ import {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(null);
   
-    // deal with memory leak
     const [cancelled, setCancelled] = useState(false);
   
     const auth = getAuth();

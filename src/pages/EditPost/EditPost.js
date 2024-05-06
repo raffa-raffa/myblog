@@ -2,7 +2,6 @@ import styles from "./EditPost.module.css";
 
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useAuthValue } from "../../context/AuthContext"
 import { useFetchDocument } from "../../hooks/useFetchDocument";
 import { useUpdateDocument } from "../../hooks/useUpdateDocument";
 
@@ -18,7 +17,6 @@ const EditPost = () => {
   const [tags, setTags] = useState([]);
   const [formError, setFormError] = useState("");
 
-  // fill form data
   useEffect(() => {
     if (post) {
       setTitle(post.title);
@@ -31,7 +29,6 @@ const EditPost = () => {
     }
   }, [post]);
 
-  const { user } = useAuthValue();
 
   const navigate = useNavigate();
 
@@ -41,14 +38,12 @@ const EditPost = () => {
     e.preventDefault();
     setFormError("");
 
-    // validate image
     try {
       new URL(image);
     } catch (error) {
       setFormError("A imagem precisa ser uma URL.");
     }
 
-    // create tags array
     const tagsArray = tags.split(",").map((tag) => tag.trim());
 
     console.log(tagsArray);
@@ -71,7 +66,6 @@ const EditPost = () => {
 
     updateDocument(id, data);
 
-    // redirect to home page
     navigate("/dashboard");
   };
 
