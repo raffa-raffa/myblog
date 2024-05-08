@@ -1,0 +1,13 @@
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Define as colunas da grid */
+    gap: 20px; /* Espaçamento entre os cards */
+  }
+  
+  .card {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
