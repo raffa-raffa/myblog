@@ -1,13 +1,16 @@
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Define as colunas da grid */
-    gap: 20px; /* Espaçamento entre os cards */
-  }
-  
-  .card {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-  }
-  
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribui os cards uniformemente */
+}
+
+.card {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  list-style-type: none;
+  width: calc(33.33% - 20px); /* Calcule a largura para exibir 3 cards por linha */
+  box-sizing: border-box; /* Inclui o padding e a borda no cálculo da largura */
+}
