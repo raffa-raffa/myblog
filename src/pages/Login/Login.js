@@ -61,11 +61,16 @@ const Login = () => {
               value={password}
             />
           </label>
+        <a className={styles.forgotpwd} href="/esqueci-minha-senha"><span>
+          Esqueci minha senha
+          </span>
+          </a>
           <button className="btn" type="submit" disabled={loading}>
             {loading ? "Aguarde..." : "Login"}
           </button>
           {error && <p className="error">{error}</p>}
         </form>
+
       </div>
     </div>
   );

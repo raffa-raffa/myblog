@@ -15,4 +15,8 @@
     height: auto;
     box-shadow: rgba(0, 0, 0, 0.15) 0px -2px 10px 0px;
   }
-  
+  .forgotpwd{
+  font-size: 14px;
+padding: 10px;
+margin-bottom: 10px;
+text-align: right;}
