@@ -6,11 +6,21 @@
 
 .card {
   background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
   padding: 20px;
   margin: 10px;
   list-style-type: none;
-  width: calc(33.33% - 20px); /* Calcule a largura para exibir 3 cards por linha */
-  box-sizing: border-box; /* Inclui o padding e a borda no cálculo da largura */
+  width: calc(33.33% - 20px); 
+  box-sizing: border-box;
+}
+
+.card.background-1 {
+  background-color: #ff9999; /* Cor de fundo 1 */
+}
+
+.card.background-2 {
+  background-color: #99ff99; /* Cor de fundo 2 */
+}
+
+.card.background-3 {
+  background-color: #9999ff; /* Cor de fundo 3 */
 }
