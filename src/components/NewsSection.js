@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from "./News.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const NewsSection = () => {
   const [news, setNews] = useState([]);
@@ -15,8 +17,8 @@ const NewsSection = () => {
           apiKey: process.env.NEWS_API_KEY
         }
       });
-      setNews(response.data.articles.slice(0, 18)); 
-      setDisplayNews(response.data.articles.slice(0, 9)); 
+      setNews(response.data.articles.slice(0, 18));
+      setDisplayNews(response.data.articles.slice(0, 9));
     } catch (error) {
       console.error('Erro ao buscar notícias:', error);
     }
@@ -31,9 +33,9 @@ const NewsSection = () => {
       const interval = setInterval(() => {
         setDisplayNews(news.slice(currentIndex, currentIndex + 9));
         setCurrentIndex(prevIndex => (prevIndex + 9) % 18);
-      }, 15000); 
-      
-      return () => clearInterval(interval); 
+      }, 15000);
+
+      return () => clearInterval(interval);
     }
   }, [news, currentIndex]);
 
@@ -42,15 +44,19 @@ const NewsSection = () => {
       <h2>Últimas Notícias do Brasil</h2>
       <ul className={styles.container}>
         {displayNews.map((article, index) => {
-          const randomBackground = Math.floor(Math.random() * 3) + 1; // Altere o número para o número total de classes de background
-          const backgroundClass = `background-${randomBackground}`; // Classe de background aleatória
+          const randomBackground = Math.floor(Math.random() * 3) + 1;
+          const backgroundClass = `background-${randomBackground}`;
           
           return (
             <li key={index} className={`${styles.card} ${styles[backgroundClass]}`}>
               {article.urlToImage && <img src={article.urlToImage} alt="Imagem da notícia" />}
               <h3>{article.title}</h3>
               <p>{article.description}</p>
-              <a href={article.url} target="_blank" rel="noopener noreferrer">Leia mais</a>
+              <div className={styles.link}>
+                <a href={article.url} target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faArrowRight} />
+                </a>
+              </div>
             </li>
           );
         })}

@@ -18,3 +18,11 @@
   .tags span {
     font-weight: bold;
   }
+
+  .box {
+    margin: 120px auto;
+    width: 25%;
+    padding: 40px;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px -2px 10px 0px;
+    }

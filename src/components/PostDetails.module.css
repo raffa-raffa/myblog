@@ -1,14 +1,19 @@
 .post_detail {
     margin-bottom: 2em;
+    height: 450px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px -2px 10px 0px;
   }
   
   .post_detail img {
-    max-width: 500px;
-    height: 300px;
+    max-width: 450px;
+    height: 280px;
   }
   
   .post_detail h2 {
     margin-bottom: 0.4em;
+    text-align: left;
+    margin-left: 30px;
   }
   
   .post_detail .tags {
@@ -30,3 +35,19 @@
     font-size: 0.8em;
     margin-bottom: 1em;
   }
+
+  .post_container{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 30px}
+
+.link{
+  /* background-color:  #ff9999; */
+  background-color:  #FEC887;;
+  height: 50px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;}
