@@ -69,10 +69,10 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
               />
-            </label>
             <a className={styles.forgotpwd} href="/esqueci-minha-senha" onClick={handleForgotPassword}>
-              <span>Esqueci minha senha</span>
+             Esqueci minha senha
             </a>
+            </label>
             <button className="btn" type="submit" disabled={loading}>
               {loading ? "Aguarde..." : "Login"}
             </button>
