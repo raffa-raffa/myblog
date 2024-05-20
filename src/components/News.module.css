@@ -4,6 +4,11 @@
   justify-content: space-between; /* Distribui os cards uniformemente */
 }
 
+.news h2{
+padding:20px;
+margin:20px 0
+}
+
 .card {
   text-align: left;
   display: flex;
