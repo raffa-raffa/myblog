@@ -1,4 +1,4 @@
-// CSS
+// src/pages/Home/Home.js
 import styles from "./Home.module.css";
 
 // hooks
@@ -18,6 +18,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const [query, setQuery] = useState("");
+  const [visiblePosts, setVisiblePosts] = useState(4);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,20 +28,26 @@ const Home = () => {
     }
   };
 
+  const handleShowMore = (e) => {
+    e.preventDefault();
+    setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + 4); 
+  };
+
   console.log(loading);
 
   return (
     <div className={styles.home}>
+      <div className={styles.head}>
       <h1>Veja os nossos posts mais recentes</h1>
-
       <form className={styles.search_form} onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Ou busque por tags..."
           onChange={(e) => setQuery(e.target.value)}
-        />
+          />
         <button className="btn btn-dark">Pesquisar</button>
       </form>
+          </div>
       <div className={styles.postlist}>
         {loading && <p>Carregando...</p>}
         {posts && posts.length === 0 && (
@@ -51,9 +58,18 @@ const Home = () => {
             </Link>
           </div>
         )}
-        {posts && posts.map((post) => <PostDetail key={post.id} post={post} />)}
+        {posts && posts.slice(0, visiblePosts).map((post) => (
+          <PostDetail key={post.id} post={post} />
+        ))}
       </div>
-      <NewsSection /> {/* Adicione o componente NewsSection aqui */}
+      <div className={styles.visiblePosts}>
+      {posts && visiblePosts < posts.length && (
+        <a href="#" onClick={handleShowMore} className={styles.loadMore}>
+          Ver mais posts
+        </a>
+      )}
+      </div>
+      <NewsSection />
     </div>
   );
 };

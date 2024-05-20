@@ -1,4 +1,5 @@
 .container {
+  margin-bottom: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between; /* Distribui os cards uniformemente */

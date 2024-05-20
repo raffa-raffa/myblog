@@ -10,12 +10,12 @@ const PostDetail = ({ post }) => {
       <div className={styles.post_container}>
       <p className={styles.createdby}>por: {post.createdBy}</p>
       <div className={styles.tags}>
-        {/* {post.tags.map((tag) => (
+        {post.tags.map((tag) => (
           <p key={tag}>
           <span>#</span>
           {tag}
           </p>
-        ))} */}
+        ))}
       </div>
       <Link to={`/posts/${post.id}`}className={styles.link} >
         Leia mais
