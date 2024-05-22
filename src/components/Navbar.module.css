@@ -32,3 +32,17 @@
     color: #000;
     font-weight:400;
   }
+
+  .search_form {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+    align-items: center;
+    
+  }
+  
+  .search_form input {
+    margin-right: 10px;
+    width: 50%;
+  }
