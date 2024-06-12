@@ -1,5 +1,6 @@
 // src/pages/Home/Home.js
 import styles from "./Home.module.css";
+import { useNavigate } from "react-router-dom";
 
 // hooks
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
@@ -15,6 +16,8 @@ import NewsSection from "../../components/NewsSection";
 const Home = () => {
   const { documents: posts, loading } = useFetchDocuments("posts");
 
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
 
   const [visiblePosts, setVisiblePosts] = useState(4);
 
@@ -25,12 +28,28 @@ const Home = () => {
     setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + 4); 
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (query) {
+      return navigate(`/search?q=${query}`);
+    }
+  };
+
   console.log(loading);
 
   return (
     <div className={styles.home}>
       <div className={styles.head}>
       <h1>Veja os nossos posts mais recentes</h1>
+      <form className={styles.search_form} onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Ou busque por tags..."
+          onChange={(e) => setQuery(e.target.value)}
+          />
+        <button className="btn btn-dark">Pesquisar</button>
+      </form>
     
           </div>
       <div className={styles.postlist}>

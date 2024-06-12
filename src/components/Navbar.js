@@ -9,30 +9,13 @@ import { useAuthentication } from "../hooks/useAuthentication";
 const Navbar = () => {
   const { user } = useAuthValue();
   const { logout } = useAuthentication();
-  const [query, setQuery] = useState("");
-  const navigate = useNavigate();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (query) {
-      return navigate(`/search?q=${query}`);
-    }
-  };
   
   return (
     <nav className={styles.navbar}>
       <NavLink className={styles.brand} to="/">
         <span>Blog</span>
       </NavLink>
-      <form className={styles.search_form} onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Ou busque por tags..."
-          onChange={(e) => setQuery(e.target.value)}
-          />
-        <button className="btn btn-dark">Pesquisar</button>
-      </form>
+    
       <ul className={styles.links_list}>
         <li>
           <NavLink
