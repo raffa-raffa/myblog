@@ -20,12 +20,16 @@ const Home = () => {
   const navigate = useNavigate();
 
   const [visiblePosts, setVisiblePosts] = useState(4);
-
-  
+  const [showMore, setShowMore] = useState(false);
 
   const handleShowMore = (e) => {
     e.preventDefault();
-    setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + 4); 
+    if (showMore) {
+      setVisiblePosts(4);
+    } else {
+      setVisiblePosts(posts.length);
+    }
+    setShowMore(!showMore);
   };
 
   const handleSubmit = (e) => {
@@ -41,17 +45,16 @@ const Home = () => {
   return (
     <div className={styles.home}>
       <div className={styles.head}>
-      <h1>Veja os nossos posts mais recentes</h1>
-      <form className={styles.search_form} onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Ou busque por tags..."
-          onChange={(e) => setQuery(e.target.value)}
+        <h1>Veja os nossos posts mais recentes</h1>
+        <form className={styles.search_form} onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Ou busque por tags..."
+            onChange={(e) => setQuery(e.target.value)}
           />
-        <button className="btn btn-dark">Pesquisar</button>
-      </form>
-    
-          </div>
+          <button className="btn btn-dark">Pesquisar</button>
+        </form>
+      </div>
       <div className={styles.postlist}>
         {loading && <p>Carregando...</p>}
         {posts && posts.length === 0 && (
@@ -67,11 +70,11 @@ const Home = () => {
         ))}
       </div>
       <div className={styles.visiblePosts}>
-      {posts && visiblePosts < posts.length && (
-        <a href="#" onClick={handleShowMore} className={styles.loadMore}>
-          Ver mais posts
-        </a>
-      )}
+        {posts && posts.length > 4 && (
+          <a href="#" onClick={handleShowMore} className={styles.loadMore}>
+            {showMore ? "Esconder posts" : "Ver mais posts"}
+          </a>
+        )}
       </div>
       <NewsSection />
     </div>
